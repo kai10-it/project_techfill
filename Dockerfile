@@ -46,13 +46,6 @@ COPY . .
 RUN bundle exec bootsnap precompile app/ lib/
 
 # Precompiling assets for production without requiring secret RAILS_MASTER_KEY
-# Railsがビルド中に環境変数を要求するのでダミーをセット
-ARG RAILS_ENV=production
-ARG SECRET_KEY_BASE=dummy_secret_key
-
-ENV RAILS_ENV=production
-ENV SECRET_KEY_BASE=dummy_secret_key
-
 RUN bundle exec rails assets:precompile
 
 
