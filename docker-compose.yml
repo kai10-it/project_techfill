@@ -12,7 +12,7 @@ services:
     build: .
     environment:
       SECRET_KEY_BASE: dummy_secret_key
-      DATABASE_URL: postgres://user:password@db:5432/dbname
+      DATABASE_URL: ${DATABASE_URL}
       POSTGRES_USER: dummy_user
       POSTGRES_PASSWORD: dummy_password
     command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -b 0.0.0.0"
