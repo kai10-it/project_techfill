@@ -49,13 +49,13 @@ RUN bundle exec bootsnap precompile app/ lib/
 # Railsがビルド中に環境変数を要求するのでダミーをセット
 ARG RAILS_ENV=production
 ARG SECRET_KEY_BASE=dummy_secret_key
-ARG DATABASE_URL=postgres://user:password@localhost:5432/dbname
+ARG DATABASE_URL=postgres://user:password@db:5432/dbname
 ARG POSTGRES_USER=dummy_user
 ARG POSTGRES_PASSWORD=dummy_password
 
 ENV RAILS_ENV=production
 ENV SECRET_KEY_BASE=dummy_secret_key
-ENV DATABASE_URL=postgres://user:password@localhost:5432/dbname
+ENV DATABASE_URL=postgres://user:password@db:5432/dbname
 ENV POSTGRES_USER=dummy_user
 ENV POSTGRES_PASSWORD=dummy_password
 
