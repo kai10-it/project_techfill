@@ -46,7 +46,12 @@ COPY . .
 RUN bundle exec bootsnap precompile app/ lib/
 
 # Precompiling assets for production without requiring secret RAILS_MASTER_KEY
-RUN SECRET_KEY_BASE_DUMMY=1 ./bin/rails assets:precompile
+# Railsがビルド中に環境変数を要求するのでダミーをセット
+ENV RAILS_ENV=production
+ENV SECRET_KEY_BASE=dummy_secret_key
+ENV DATABASE_URL=postgres://user:password@localhost:5432/dbname
+
+RUN bundle exec rails assets:precompile
 
 
 
