@@ -15,7 +15,15 @@ services:
       DATABASE_URL: ${DATABASE_URL}
       POSTGRES_USER: ${POSTGRES_USER}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
-    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -b 0.0.0.0"
+    command: >
+      bash -c "
+        if [ \"$RAILS_ENV\" = \"production\" ]; then
+          bundle exec rails assets:precompile &&
+          bin/rails server -b 0.0.0.0
+        else
+          bin/rails server -b 0.0.0.0
+        fi
+      "
     volumes:
       - .:/app
     ports:
