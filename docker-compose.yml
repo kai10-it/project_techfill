@@ -13,8 +13,8 @@ services:
     environment:
       SECRET_KEY_BASE: dummy_secret_key
       DATABASE_URL: ${DATABASE_URL}
-      POSTGRES_USER: dummy_user
-      POSTGRES_PASSWORD: dummy_password
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
     command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -b 0.0.0.0"
     volumes:
       - .:/app
