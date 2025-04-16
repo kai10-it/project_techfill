@@ -1,0 +1,22 @@
+<!-- app/views/shared/_header.html.erb -->
+<header>
+  <!-- ヘッダー全体を囲むコンテナ -->
+  <div class="header-container">
+
+    <!-- サイトのロゴまたはタイトル表示 -->
+    <h1 class="logo">TechFill</h1>
+
+    <!-- ユーザー認証状態に応じたナビゲーションリンク -->
+    <nav class="nav-links">
+      <% if user_signed_in? %>
+        <!-- ログイン済みの場合：ログアウトリンクを表示 -->
+        <%= link_to "ログアウト", destroy_user_session_path, method: :delete, data: { turbo: false } %>
+      <% else %>
+        <!-- 未ログインの場合：ログイン＆サインアップリンクを表示 -->
+        <%= link_to "ログイン", new_user_session_path %> |
+        <%= link_to "サインアップ", new_user_registration_path %>
+      <% end %>
+    </nav>
+
+  </div>
+</header>
