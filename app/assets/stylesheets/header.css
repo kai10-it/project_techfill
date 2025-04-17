@@ -36,3 +36,11 @@ header {
     color: white;
   }
   
+  /* アバター画像を40x40にリサイズして丸く表示する */
+  .avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-left: 15px;
+  }
