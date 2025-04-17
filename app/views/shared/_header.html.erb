@@ -14,7 +14,7 @@
           <%= image_tag current_user.avatar.variant(resize_to_fill: [40, 40]), class: "avatar" %>
         <% else %>
           <!-- アバター画像がアップロードされていない場合：デフォルトの画像を使用する -->
-          <%= image_tag "default_avatar.png", class: "avatar" %>
+          <%= image_tag asset_path("default_avatar.png"), class: "avatar" %>
         <% end %>
 
         <!-- ログイン済みの場合：ログアウトリンクを表示 -->
