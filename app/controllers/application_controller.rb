@@ -6,11 +6,11 @@ class ApplicationController < ActionController::Base
 
   # Strong Parametersの設定
   def configure_permitted_parameters
-    # サインアップ時に :avatar を許可
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:avatar])
+    # サインアップ時に :name, avatarを許可
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :avatar])
 
-    # アカウント情報更新時に :avatar を許可
-    devise_parameter_sanitizer.permit(:account_update, keys: [:avatar])
+    # アカウント情報更新時に :name, avatar を許可
+    devise_parameter_sanitizer.permit(:account_update, keys: [:name, :avatar])
   end
   # Only allow modern browsers supporting webp images, web push, badges, import maps, CSS nesting, and CSS :has.
   allow_browser versions: :modern
