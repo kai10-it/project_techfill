@@ -5,4 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
          
   has_one_attached :avatar
+
+  # ユーザーは複数の記事を作成し、所有することができる
+  # ユーザーが削除された時は、そのユーザーが作成した記事もすべて削除される
+  has_many :articles, dependent: :destroy
 end
