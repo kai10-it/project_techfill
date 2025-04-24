@@ -1,0 +1,20 @@
+<h1>新しい記事を投稿します</h1>
+
+<%= form_with model: @article, local: true do |form| %>
+    <!-- 記事のタイトルの入力欄 -->
+    <div class="field">
+        <%= form.label :title, "タイトル" %><br>
+        <%= form.text_field :title %>
+    </div>
+
+    <!-- 記事の内容の入力欄 -->
+    <div class="field" style="margin-top: 15px">
+        <%= form.label :body, "本文" %><br>
+        <%= form.text_area :body, rows: 10 %>
+    </div>
+
+    <!-- 送信ボタン -->
+    <div class="actions" style="margin-top: 20px;">
+        <%= form.submit "記事を投稿" %>
+    </div>
+<% end %>
