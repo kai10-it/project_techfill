@@ -33,6 +33,16 @@ class ArticlesController < ApplicationController
     def edit
         @article = Article.find(params[:id])
     end
+    
+    # 編集した記事の内容を保存する
+    def update
+        @article = Article.find(params[:id])
+        if @article.update(article_params)
+            redirect_to @article, notice: "記事を更新しました"
+        else
+            render :edit, status: :unprocessavle_entity
+        end
+    end
 
     # 投稿した記事を削除する
     def destroy
