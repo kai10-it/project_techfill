@@ -1,0 +1,25 @@
+<h1>記事一覧</h1>
+
+<% @articles.each do |article| %>
+    <div class="article" style="margin-bottom: 30px;">
+    <!-- 記事タイトル（リンク付き） -->
+    <h2>
+        <%= link_to article.title, article_path(article) %>
+    </h2>
+
+    <!-- ユーザー情報 -->
+    <div class="user-info" style="display: flex; align-items: center;">
+        <!-- ユーザーアイコンの表示 -->
+        <% if article.user.avatar.attached? %>
+            <%= image_tag article.user.avatar.variant(resize_to_fill: [40, 40]), class: "avatar", style: "border-radius: 50%; margin-right: 10px;" %>
+        <% else %>
+            <%= image_tag "default-avatar.png", size: "40x40", class: "avatar", style: "border-radius: 50%; margin-right: 10px;" %>
+        <% end %>
+
+        <!-- ユーザー名の表示 -->
+            <span><%= article.user.name %></span>
+        </div>
+    
+        <hr>
+    </div>
+<% end %>        
