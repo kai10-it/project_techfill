@@ -29,6 +29,13 @@ class ArticlesController < ApplicationController
         end
     end
 
+    # 投稿した記事を削除する
+    def destroy
+        @article = Article.find(params[:id])
+        @article.destroy
+        redirect_to articles_path, notice: "記事を削除しました"
+    end
+
     # ここからはcontroller内だけで使う処理
     private
     
