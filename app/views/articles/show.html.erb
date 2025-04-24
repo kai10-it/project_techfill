@@ -15,4 +15,7 @@
 
     <!-- ユーザー名を表示する -->
     <p><%= @article.user.name %></p>
+
+    <!-- 記事を削除する -->
+    <%= link_to "記事を削除", article_path(@article), method: :delete, data: {confirm: "本当に削除しますか？"}, class: "btn btn-danger" %>
 </div>
