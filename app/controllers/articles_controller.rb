@@ -29,6 +29,11 @@ class ArticlesController < ApplicationController
         end
     end
 
+    # 投稿した記事を編集する
+    def edit
+        @article = Article.find(params[:id])
+    end
+
     # 投稿した記事を削除する
     def destroy
         @article = Article.find(params[:id])
