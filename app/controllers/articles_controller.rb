@@ -1,6 +1,8 @@
 class ArticlesController < ApplicationController
     # ログインしていない時は記事を投稿できないようにする
     before_action :authenticate_user!, except: [:index, :show]
+    # 記事の編集と更新、削除を行う前に、記事を作成した本人か確認をする
+    before_action :correct_user, only: [:edit, :update, :destroy]
 
     # 新しく投稿された順番で記事の一覧を表示する
     def index
@@ -63,5 +65,12 @@ class ArticlesController < ApplicationController
     # 記事のタイトルと記事の内容のデータだけを受け取る処理
     def article_params
         params.require(:article).permit(:title, :body)
+    end
+
+    def correct_user
+        @article = Article.find(params[:id])
+        unless @article.user == current_user
+            redirect_to articles_path, alert: "他人の記事は編集・削除できません"
+        end
     end
 end
