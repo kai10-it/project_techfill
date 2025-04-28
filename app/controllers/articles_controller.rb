@@ -6,7 +6,7 @@ class ArticlesController < ApplicationController
     def index
         # キーワードが入力されている場合は、タイトルまたは本文にキーワードを含む記事を検索する
         if params[:query].present?
-            @articles = Article.where("title LIKE :search OR body LIKE :search", search: "%{params[:query]}%").order(created_at: :desc)
+            @articles = Article.where("title LIKE :search OR body LIKE :search", search: "%#{params[:query]}%").order(created_at: :desc)
         # キーワードが入力されていない場合は、すべての記事を表示する
         else
             @articles = Article.all.order(created_at: :desc)
@@ -46,7 +46,7 @@ class ArticlesController < ApplicationController
         if @article.update(article_params)
             redirect_to @article, notice: "記事を更新しました"
         else
-            render :edit, status: :unprocessavle_entity
+            render :edit, status: :unprocessable_entity
         end
     end
 
