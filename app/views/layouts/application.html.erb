@@ -32,6 +32,19 @@
     <!-- 共通ヘッダーを呼び出す -->
     <%= render "shared/header" %>
 
+    <!-- フラッシュメッセージ -->
+    <% if notice %>
+      <div class="alert alert-success">
+        <%= notice %>
+      </div>
+    <% end %>
+
+    <% if alert %>
+      <div class="alert alert-danger">
+        <%= alert %>
+      </div>
+    <% end %>
+
     <%= yield %>
   </body>
 </html>
