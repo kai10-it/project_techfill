@@ -4,7 +4,13 @@ class ArticlesController < ApplicationController
 
     # 新しく投稿された順番で記事の一覧を表示する
     def index
-        @articles = Article.all.order(created_at: :desc)
+        # キーワードが入力されている場合は、タイトルまたは本文にキーワードを含む記事を検索する
+        if params[:query].present?
+            @articles = Article.where("title LIKE :search OR body LIKE :search", search: "%{params[:query]}%").order(created_at: :desc)
+        # キーワードが入力されていない場合は、すべての記事を表示する
+        else
+            @articles = Article.all.order(created_at: :desc)
+        end
     end
 
     # 記事の内容を閲覧する
