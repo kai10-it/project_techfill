@@ -16,6 +16,12 @@
     <!-- ユーザー名を表示する -->
     <p><%= @article.user.name %></p>
 
-    <!-- 記事を削除する -->
-    <%= link_to "記事を削除", article_path(@article), method: :delete, data: {confirm: "本当に削除しますか？"}, class: "btn btn-danger" %>
+    <!-- 記事を作成したユーザーとしてログインしていた場合 -->
+    <% if @article.user == current_user %>
+        <!-- 記事を編集する -->
+        <%= link_to "記事を編集する", edit_article_path(@article), class: "btn btn-primary", style: "margin-right: 10px;" %>
+
+        <!-- 記事を削除する -->
+        <%= link_to "記事を削除", article_path(@article), method: :delete, data: {confirm: "本当に削除しますか？"}, class: "btn btn-danger" %>
+    <% end %>
 </div>
