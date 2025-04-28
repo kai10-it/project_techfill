@@ -3,7 +3,7 @@
 
 <!-- モード切り替えボタン -->
 <!-- もし穴埋め問題モードだったら、記事閲覧モードに移動するボタンを表示する -->
-<% if params[:mode] == 'quiz' %>
+<% if @mode == 'quiz' %>
     <%= link_to '記事閲覧モードへ', article_path(@article), class: 'btn btn-primary' %>
 <!-- もし記事閲覧モードだったら、穴埋め問題モードに移動するボタンを表示する -->
 <%  else %>
