@@ -8,3 +8,18 @@
  *
  * Consider organizing styles into separate files for maintainability.
  */
+
+ .fill-blank {
+    background-color: black;
+    color: black;
+    cursor: pointer;
+    padding: 2px 6px;
+    border-radius: 4px;
+    margin: 0 2px;
+    display: inline-block;
+    font-weight: bold;
+ }
+
+ .fill-blank:hover {
+    color: white;
+ }
