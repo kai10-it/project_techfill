@@ -15,6 +15,9 @@ Rails.application.routes.draw do
   # root "posts#index"
 
   root "homes#index"
-
-  resources :articles
+  
+  # 記事に対してのコメントのルートを設定  
+  resources :articles do
+    resources :comments, only: [:create]
+  end
 end
