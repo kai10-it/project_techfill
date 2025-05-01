@@ -39,3 +39,13 @@
         <%= link_to "記事を削除", article_path(@article), method: :delete, data: {confirm: "本当に削除しますか？"}, class: "btn btn-danger" %>
     <% end %>
 </div>
+
+<!-- コメント欄を表示する -->
+<h2>コメント</h2>
+<% @article.comments.each do |comment| %>
+    <div class="comment">
+        <strong><%= comment.user.name %>:</strong>
+        <%= comment.content %>
+    </div>
+<% end %>
+
