@@ -12,5 +12,5 @@ class User < ApplicationRecord
 
   # ユーザーは複数のコメントを行うことができる
   # ユーザーが削除された時は、そのユーザーのコメントもすべて削除される
-  has_many :comments, dependent: :destory
+  has_many :comments, dependent: :destroy
 end
