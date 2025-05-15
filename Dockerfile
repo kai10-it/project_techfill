@@ -45,8 +45,8 @@ COPY . .
 # Precompile bootsnap code for faster boot times
 RUN bundle exec bootsnap precompile app/ lib/
 
-# Precompiling assets for production without requiring secret RAILS_MASTER_KEY
-RUN SECRET_KEY_BASE_DUMMY=1 ./bin/rails assets:precompile
+# ビルド中に使う変数を宣言して、デフォルトは本番（production）
+ARG RAILS_ENV=production
 
 
 

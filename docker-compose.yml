@@ -10,9 +10,24 @@ services:
 
   web:
     build: .
-    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -b 0.0.0.0"
+    environment:
+      RAILS_ENV: development
+      SECRET_KEY_BASE: dummy_secret_key
+      DATABASE_URL: ${DATABASE_URL}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    command: >
+      bash -c "
+        rm -f tmp/pids/server.pid &&
+        if [ \"$RAILS_ENV\" = \"production\" ]; then
+          bundle exec rails assets:precompile &&
+          bin/rails server -b 0.0.0.0
+        else
+          bin/rails server -b 0.0.0.0
+        fi
+      "
     volumes:
-      - .:/app
+      - .:/rails
     ports:
       - "3000:3000"
     depends_on:
