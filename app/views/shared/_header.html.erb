@@ -9,6 +9,14 @@
     <!-- ユーザー認証状態に応じたナビゲーションリンク -->
     <nav class="nav-links">
       <% if user_signed_in? %>
+        <% if current_user.avatar.attached? %>
+          <!-- アバター画像がアップロードされている場合：40x40にリサイズする -->
+          <%= image_tag current_user.avatar.variant(resize_to_fill: [40, 40]), class: "avatar" %>
+        <% else %>
+          <!-- アバター画像がアップロードされていない場合：デフォルトの画像を使用する -->
+          <%= image_tag asset_path("default_avatar.png"), class: "avatar" %>
+        <% end %>
+
         <!-- ログイン済みの場合：ログアウトリンクを表示 -->
         <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
       <% else %>
