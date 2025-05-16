@@ -18,7 +18,8 @@
     <link rel="apple-touch-icon" href="/icon.png">
 
     <%# Includes all stylesheet files in app/assets/stylesheets %>
-    <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag :application, "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "header", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
     
     <script src="https://cdn.jsdelivr.net/npm/@rails/ujs@7.0.0/lib/assets/compiled/rails-ujs.js"></script>
@@ -28,12 +29,8 @@
   </head>
 
   <body>
-    <% if user_signed_in? %>
-      <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-    <% else %>
-      <%= link_to "ログイン", new_user_session_path %> |
-      <%= link_to "サインアップ", new_user_registration_path %>
-    <% end %>
+    <!-- 共通ヘッダーを呼び出す -->
+    <%= render "shared/header" %>
 
     <%= yield %>
   </body>
