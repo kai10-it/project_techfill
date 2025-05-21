@@ -1,6 +1,20 @@
 <h1><%= @article.title %></h1>
 
-<p><%= simple_format(@article.body) %></p>
+
+<!-- モード切り替えボタン -->
+<!-- もし穴埋め問題モードだったら、記事閲覧モードに移動するボタンを表示する -->
+<% if @mode == 'quiz' %>
+    <%= link_to '記事閲覧モードへ', article_path(@article), class: 'btn btn-primary' %>
+<!-- もし記事閲覧モードだったら、穴埋め問題モードに移動するボタンを表示する -->
+<%  else %>
+    <%= link_to '穴埋め問題モードへ', article_path(@article, mode: 'quiz'), class: 'btn btn-primary' %>
+<% end %>
+
+<!-- 記事の本文を表示する -->
+<div class="article-body">
+    <!-- 記事の本文にヘルパーメソッドを使用して閲覧 or 穴埋め表示の切り替えを行う -->
+    <%= render_article_body_with_blanks(@article.body, @mode) %>
+</div>
 
 <hr>
 
