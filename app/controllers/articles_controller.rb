@@ -18,7 +18,6 @@ class ArticlesController < ApplicationController
     # 記事の内容を閲覧する
     def show
         @article = Article.find(params[:id])
-        @mode = params[:mode]
     end
 
     # ログイン中のユーザーが新しい記事を作成するための準備をする
