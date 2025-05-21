@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   get "homes/index"
+  root "homes#index"
+
   devise_for :users
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
@@ -14,7 +16,8 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
 
-  root "homes#index"
-
-  resources :articles
+  # 記事に対してのコメントのルートを設定  
+  resources :articles do
+    resources :comments, only: [:create]
+  end
 end
