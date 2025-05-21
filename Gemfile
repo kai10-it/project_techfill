@@ -52,6 +52,9 @@ group :development, :test do
 
   # RubocopをRails向けにプリセットした構成で使うことができる -コードスタイルチェック用 [https://github.com/rails/rubocop-rails-omakase/]
   gem "rubocop-rails-omakase", require: false
+
+  # RSpecの本体 -Railsのテストを書くためのライブラリ
+  gem "rspec-rails"
 end
 
 group :development do
