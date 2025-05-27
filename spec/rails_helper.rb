@@ -13,6 +13,9 @@ abort("The Rails environment is running in production mode!") if Rails.env.produ
 # RSpecでRailsの機能（モデルやコントローラなど）を使えるようにする
 require 'rspec/rails'
 
+# FactoryBotを使えるようにする
+require 'factory_bot_rails'
+
 # マイグレーションの状態をチェックして、未実行ならエラーを出してテストを止める
 begin
   # テスト用のデータベースが最新のデータベース構成になっているか確認をする
