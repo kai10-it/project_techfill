@@ -1,72 +1,38 @@
-# This file is copied to spec/ when you run 'rails generate rspec:install'
+# spec_helper.rbの設定を読み込む
 require 'spec_helper'
+
+# RAILS_ENV（Railsの実行環境）が設定されていない場合は、test環境として動かす
 ENV['RAILS_ENV'] ||= 'test'
+
+# environment.rb を相対パスで読み込み、Rails全体の設定や初期化を行う
 require_relative '../config/environment'
-# Prevent database truncation if the environment is production
+
+# 実行環境が本番（production）なら、安全のためテストを中止する
 abort("The Rails environment is running in production mode!") if Rails.env.production?
-# Uncomment the line below in case you have `--require rails_helper` in the `.rspec` file
-# that will avoid rails generators crashing because migrations haven't been run yet
-# return unless Rails.env.test?
+
+# RSpecでRailsの機能（モデルやコントローラなど）を使えるようにする
 require 'rspec/rails'
-# Add additional requires below this line. Rails is not loaded until this point!
 
-# Requires supporting ruby files with custom matchers and macros, etc, in
-# spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are
-# run as spec files by default. This means that files in spec/support that end
-# in _spec.rb will both be required and run as specs, causing the specs to be
-# run twice. It is recommended that you do not name files matching this glob to
-# end with _spec.rb. You can configure this pattern with the --pattern
-# option on the command line or in ~/.rspec, .rspec or `.rspec-local`.
-#
-# The following line is provided for convenience purposes. It has the downside
-# of increasing the boot-up time by auto-requiring all files in the support
-# directory. Alternatively, in the individual `*_spec.rb` files, manually
-# require only the support files necessary.
-#
-# Rails.root.glob('spec/support/**/*.rb').sort_by(&:to_s).each { |f| require f }
-
-# Ensures that the test database schema matches the current schema file.
-# If there are pending migrations it will invoke `db:test:prepare` to
-# recreate the test database by loading the schema.
-# If you are not using ActiveRecord, you can remove these lines.
+# マイグレーションの状態をチェックして、未実行ならエラーを出してテストを止める
 begin
+  # テスト用のデータベースが最新のデータベース構成になっているか確認をする
   ActiveRecord::Migration.maintain_test_schema!
+# まだ実行されていないマイグレーションがある場合
 rescue ActiveRecord::PendingMigrationError => e
+  # プログラムを終了し、エラーメッセージを文字列に変換し、文字列の両端にある空白をなくす
   abort e.to_s.strip
 end
+
+# RSspecの設定を実行する
 RSpec.configure do |config|
-  # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
+  # fixtures というテストデータの置き場所を設定する
   config.fixture_paths = [
     Rails.root.join('spec/fixtures')
   ]
 
-  # If you're not using ActiveRecord, or you'd prefer not to run each of your
-  # examples within a transaction, remove the following line or assign false
-  # instead of true.
+  # テストごとにデータベースの変更を自動で元に戻す
   config.use_transactional_fixtures = true
 
-  # You can uncomment this line to turn off ActiveRecord support entirely.
-  # config.use_active_record = false
-
-  # RSpec Rails uses metadata to mix in different behaviours to your tests,
-  # for example enabling you to call `get` and `post` in request specs. e.g.:
-  #
-  #     RSpec.describe UsersController, type: :request do
-  #       # ...
-  #     end
-  #
-  # The different available types are documented in the features, such as in
-  # https://rspec.info/features/8-0/rspec-rails
-  #
-  # You can also this infer these behaviours automatically by location, e.g.
-  # /spec/models would pull in the same behaviour as `type: :model` but this
-  # behaviour is considered legacy and will be removed in a future version.
-  #
-  # To enable this behaviour uncomment the line below.
-  # config.infer_spec_type_from_file_location!
-
-  # Filter lines from Rails gems in backtraces.
+  # エラーが発生した際に rails 内部のバックトレースを省略する
   config.filter_rails_from_backtrace!
-  # arbitrary gems may also be filtered via:
-  # config.filter_gems_from_backtrace("gem name")
 end
