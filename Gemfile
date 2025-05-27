@@ -55,6 +55,9 @@ group :development, :test do
 
   # RSpecの本体 -Railsのテストを書くためのライブラリ
   gem "rspec-rails"
+
+  # テストデータを自動で作成するためのライブラリ
+  gem 'factory_bot_rails'
 end
 
 group :development do
