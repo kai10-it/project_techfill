@@ -38,4 +38,7 @@ RSpec.configure do |config|
 
   # エラーが発生した際に rails 内部のバックトレースを省略する
   config.filter_rails_from_backtrace!
+
+  # FactoryBotのメソッドを省略する設定
+  config.include FactoryBot::Syntax::Methods
 end
