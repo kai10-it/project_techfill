@@ -13,7 +13,4 @@ RSpec.configure do |config|
 
   # shared_context（共通の設定）を、describe や context に自動で適用できるようにする設定
   config.shared_context_metadata_behavior = :apply_to_host_groups
-
-  # FactoryBotのメソッドを省略する設定
-  config.include FactoryBot::Syntax::Methods
 end
