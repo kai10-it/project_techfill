@@ -3,6 +3,8 @@ Rails.application.routes.draw do
 
   # サインアップのルート
   get "users/sinup" => "users#new"
+  # ユーザー情報を登録するルート
+  post "users/create" => "users#create"
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
