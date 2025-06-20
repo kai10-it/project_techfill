@@ -10,6 +10,10 @@ body {
    background-color: #F4F6F8;
 }
 
+a {
+   text-decoration: none;
+}
+
 
 header {
    position: fixed;
@@ -31,6 +35,10 @@ header {
    list-style: none;
    float: right;
    margin: 35px 30px;
+}
+
+.header-list a {
+   color: #F4F6F8;
 }
 
 .top-main {
