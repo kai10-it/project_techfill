@@ -1,4 +1,9 @@
 class User < ApplicationRecord
+  # 入力されるデータをチェックする
+  validates :name, {presence: true}
+  validates :email, {presence: true, uniqueness: true}
+  validates :password, {presence: true}
+
   has_one_attached :avatar
 
   # ユーザーは複数の記事を作成し、所有することができる
