@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   get "/" => "home#top"
 
   # サインアップのルート
-  get "users/sinup" => "users#new"
+  get "users/signup" => "users#new"
   # ユーザー情報を登録するルート
   post "users/create" => "users#create"
 
