@@ -1,14 +1,89 @@
-/*
- * This is a manifest file that'll be compiled into application.css.
- *
- * With Propshaft, assets are served efficiently without preprocessing steps. You can still include
- * application-wide styles in this file, but keep in mind that CSS precedence will follow the standard
- * cascading order, meaning styles declared later in the document or manifest will override earlier ones,
- * depending on specificity.
- *
- * Consider organizing styles into separate files for maintainability.
- */
 
+html, body,
+ul, ol, li,
+h1, h2, h3, h4, h5, h6, p, div {
+  margin: 0;
+  padding: 0;
+}
+
+header {
+   position: fixed;
+   z-index: 3;
+   width: 100%;
+   height: 9%;
+   padding: 20px; 
+   color: #F4F6F8;
+   background-color: #1E3A8A;
+}
+
+.header-logo h1 {
+   margin: 20px 20px;
+   float: left;
+}
+
+.header-list li{
+   font-size: 24px;
+   list-style: none;
+   float: right;
+   margin: 35px 30px;
+}
+
+.top-main {
+   position: relative; 
+   z-index: 0;
+   height: 1200px;
+}
+
+.top-main::before {
+   content: "";
+   position: absolute; 
+   width: 100%;
+   height: 100%;   
+   background-image: url("background-image.png");
+   background-size: cover;
+   background-position: center;
+   opacity: 0.4;
+   z-index: -1;
+}
+
+.top-message {
+   color: #1E3A8A;
+   padding: 100px 80px;
+   opacity: 1;
+}
+ .top-message h1 {
+   font-size: 120px;
+ }
+
+ .top-message h2 {
+   font-size: 40px;
+ } 
+
+ .top-text {
+   margin-top: 200px;
+ }
+
+.top-text p {
+   color: #1E3A8A;
+   font-size: 30px;
+   font-weight: bold;
+   text-align: center;
+}
+
+.top-box {
+   color: #F4F6F8;
+   font-size: 40px;
+   font-weight: bold;
+   width: 400px;
+   height: 80px;
+   border-radius: 20px;
+   margin: 200px auto;
+   text-align: center;
+   line-height: 80px;
+   background-color: #1E3A8A;
+}
+
+ /* 穴埋め問題で使用するマスキングの設定 */
  .fill-blank {
     background-color: black;
     color: black;
