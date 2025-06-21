@@ -1,7 +1,7 @@
 <div class="users-form">
-    <div class="sinup-container">
-        <div class="sinup-message">新規ユーザー登録</div>
-        <div class="sinup-form">
+    <div class="users-container">
+        <div class="users-message">新規ユーザー登録</div>
+        <div class="users-form">
             <%= form_tag("/users/create") do %>
                 <div class="form-body">
                     <p>ユーザー名</p>
@@ -11,7 +11,7 @@
                     <p>パスワード</p>
                     <input name="password" value="<%= @user.password %>">
                 </div>
-                <div class="sinup-submit">
+                <div class="users-submit">
                     <input type="submit" value="新規登録">
                 </div>
             <% end %>
