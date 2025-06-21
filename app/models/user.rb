@@ -4,8 +4,6 @@ class User < ApplicationRecord
   validates :email, {presence: true, uniqueness: true}
   validates :password, {presence: true}
 
-  has_one_attached :avatar
-
   # ユーザーは複数の記事を作成し、所有することができる
   # ユーザーが削除された時は、そのユーザーが作成した記事もすべて削除される
   has_many :articles, dependent: :destroy
