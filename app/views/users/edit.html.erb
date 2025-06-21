@@ -1,0 +1,24 @@
+<div class="users-form">
+    <div class="users-container">
+        <div class="users-message">ユーザー情報の変更</div>
+        <div class="usres-form">
+            <%= form_tag("/users/update") do %>
+                <div class="form-body">
+                    <p>ユーザー名</p>
+                    <input name="name" value="<%= @user.name %>">
+                    <p>メールアドレス</p>
+                    <input name="email" value="<%= @user.email %>">
+                    <p>パスワード</p>
+                    <input name="password" value="<%= @user.password %>">
+                </div>
+                <div class="users-image">
+                    <p>画像</p>
+                    <input name="image" type="file">
+                </div>
+                <div class="users-submit">
+                    <input type="submit" value="変更">
+                </div>
+            <% end %>
+        </div>
+    </div>
+</div>

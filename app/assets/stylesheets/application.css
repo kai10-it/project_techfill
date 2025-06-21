@@ -97,13 +97,14 @@ header {
 }
 
 /* サインアップページのレイアウト */
-.sinup-container {
+/* ユーザー情報の変更ページのレイアウト */
+.users-container {
    max-width: 600px;
    margin: 60px auto;
    padding: 15px;
 }
 
-.sinup-message {
+.users-message {
    color: #1E3A8A;
    background-color: white;
    padding: 20px;
@@ -127,18 +128,40 @@ header {
    width: 400px;
 }
 
-.sinup-submit {
+.users-image {
+   padding: 10px 20px;
+   background-color: white; 
+}
+
+.users-image p {
+   color: #1E3A8A;
+   font-size: 20px;
+   font-weight: bolder;
+   padding-bottom: 10px;
+   background-color: white; 
+}
+
+.users-image input{
+   font-size: 15px;
+   height: 30px;
+   width: 400px;
+}
+
+.users-submit {
    padding: 20px;
    background-color: white;  
 }
 
-.sinup-submit input {
+.users-submit input {
    font-size: 20px;
    color: white;
    background-color: #1E3A8A;
    width: 100px;
-   height: 40px;  
+   height: 40px;
+   text-align: center;
+   line-height: 50%;  
 }
+
 
  /* 穴埋め問題で使用するマスキングの設定 */
  .fill-blank {
