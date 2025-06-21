@@ -11,4 +11,7 @@ class UsersController < ApplicationController
             render("users/new")
         end
     end
+
+    def edit
+    end
 end
