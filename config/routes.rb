@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   get "users/check" => "users#check"
   # ログインを確認するルート
   post "users/login" => "users#login"
+  # ログアウトするルート
+  post "users/logout" => "users#logout"
   
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
