@@ -2,7 +2,7 @@
     <div class="users-container">
         <div class="users-message">ユーザー情報の変更</div>
         <div class="usres-form">
-            <%= form_tag("/users/update") do %>
+            <%= form_tag("/users/#{@user.id}/update", {multipart: true}) do %>
                 <div class="form-body">
                     <p>ユーザー名</p>
                     <input name="name" value="<%= @user.name %>">
