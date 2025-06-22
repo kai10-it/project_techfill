@@ -2,12 +2,19 @@
     <div class="header-logo"><h1>TechFill</h1></div>
     <div class="header-list">
         <ul>
-            <li>
-                <a href="/users/check">ログイン</a>
-            </li>
-            <li>
+            <% if @current_user %>
+                <li>
+                    <%= link_to("ログアウト", "/users/logout", data: {turbo_method: :post}) %>
+                </li>
+            <% else %>
+                <li>
+                    <a href="/users/check">ログイン</a>
+                </li>
+                <li>
                 <a href="/users/signup">新規登録</a>
-            </li>
+                </li>
+            
+            <% end %>
         </ul>
     </div>
 </header>
