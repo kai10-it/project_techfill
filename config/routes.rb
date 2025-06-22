@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   get "users/:id/edit" => "users#edit"
   # ユーザー情報の更新をするルート
   post "users/:id/update" => "users#update"
+  # ログインページのルート
+  get "users/check" => "users#check"
   
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
