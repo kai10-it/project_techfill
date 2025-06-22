@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   post "users/:id/update" => "users#update"
   # ログインページのルート
   get "users/check" => "users#check"
+  # ログインを確認するルート
+  post "users/login" => "users#login"
   
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
