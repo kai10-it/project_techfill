@@ -1,0 +1,21 @@
+<div class="article-container">    
+    <div class="article-title">
+        <h2>
+            <%= @article.title %>
+        </h2>
+    </div>
+    <div class="article-info">
+        <div class="article-user">
+            <img src="<%= "/users_image/#{@article_user.image_name}" %>">
+            <p><%= @current_user.name %><p>
+        </div>
+        <div class="article-date">
+            <p>投稿日 <%= @create_date %></p>
+        </div>
+    </div>
+    <div class="article-text">
+        <p>
+            <%= @article.body %>
+        </p>
+    </div>
+</div>

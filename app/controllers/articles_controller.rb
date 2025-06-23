@@ -13,5 +13,8 @@ class ArticlesController < ApplicationController
     end
 
     def show
+        @article = Article.find_by(id: params[:id])
+        @article_user = User.find_by(id: @article.user_id)
+        @create_date = @article.created_at.strftime("%-Y-%-m-%-d")
     end
 end
