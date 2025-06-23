@@ -15,6 +15,10 @@ Rails.application.routes.draw do
   post "users/login" => "users#login"
   # ログアウトするルート
   post "users/logout" => "users#logout"
+
+
+  #記事作成ページのルート
+  get "articles/new" => "articles#new"
   
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
