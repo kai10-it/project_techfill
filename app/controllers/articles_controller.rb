@@ -11,4 +11,7 @@ class ArticlesController < ApplicationController
             render("articles/new")
         end
     end
+
+    def show
+    end
 end
