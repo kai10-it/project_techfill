@@ -38,4 +38,10 @@ class ArticlesController < ApplicationController
         end
         
     end
+
+    def destroy
+        @article = Artcile.find_by(id: params[:id])
+        @article.destroy
+        redirect_to("/articles/index")
+    end
 end

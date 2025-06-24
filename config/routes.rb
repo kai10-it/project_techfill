@@ -29,6 +29,8 @@ Rails.application.routes.draw do
   get "articles/:id/edit" => "articles#edit"
   # 記事編集情報の更新をするルート
   post "articles/:id/update" => "articles#update"
+  # 記事を削除するルート
+  post "articles/:id/destroy" => "articles#destroy"
   
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
