@@ -262,6 +262,21 @@ header {
    height: 50px;   
 }
 
+/* 記事一覧ページのレイアウト */
+.article-block {
+   height: 200px;
+   background-color: white;
+   border-radius: 10px; 
+   margin: 30px auto;
+   padding: 10px;
+}
+
+.article-headline {
+   font-size: 30px;
+   font-weight: bold;
+   margin-left: 20px;
+}
+
 
  /* 穴埋め問題で使用するマスキングの設定 */
  .fill-blank {
