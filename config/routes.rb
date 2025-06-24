@@ -24,6 +24,8 @@ Rails.application.routes.draw do
   post "articles/create" => "articles#create"
   # 記事詳細ページのルート
   get "articles/:id/show" => "articles#show"
+  # 記事編集ページのルート
+  get "articles/:id/edit" => "articles#edit"
   
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
