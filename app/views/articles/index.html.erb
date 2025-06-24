@@ -4,7 +4,7 @@
             <div class="article-block">
                 <div class="article-info">
                     <div class="article-user">
-                        <img src="<%= "/users_image/#{User.find_by(id: article.user_id).id}.png" %>">
+                        <img src="<%= "/users_image/#{User.find_by(id: article.user_id).image_name}" %>">
                         <p><%= User.find_by(id: article.user_id).name %><p>
                     </div>
                     <div class="article-date">
