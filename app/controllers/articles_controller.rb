@@ -25,4 +25,17 @@ class ArticlesController < ApplicationController
     def edit
         @article = Article.find_by(id: params[:id])
     end
+
+    def update
+        @article = Article.find_by(id: params[:id])
+        @article.title = params[:title]
+        @article.body = params[:textarea]
+
+        if @article.save
+            redirect_to("/articles/#{@article.id}/show")
+        else
+            render("articles/#{@article.id}/show")
+        end
+        
+    end
 end
