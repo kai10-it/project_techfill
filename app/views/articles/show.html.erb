@@ -23,4 +23,9 @@
             <input name="submit" type="submit" value="記事を編集">
         <% end %>
     </div>
+    <div class="article-destroy">
+        <%= link_to "/articles/#{@article.id}/destroy", data: { turbo_method: :post } do %>
+            <input name="submit" type="submit" value="記事を削除">
+        <% end %>
+    </div>
 </div>
