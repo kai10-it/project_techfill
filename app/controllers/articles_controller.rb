@@ -40,7 +40,7 @@ class ArticlesController < ApplicationController
     end
 
     def destroy
-        @article = Artcile.find_by(id: params[:id])
+        @article = Article.find_by(id: params[:id])
         @article.destroy
         redirect_to("/articles/index")
     end
