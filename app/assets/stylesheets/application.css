@@ -225,6 +225,7 @@ header {
 }
 
 .article-date {
+   margin-top: 35px;
    float: right;
    font-size: 18px;
 }
