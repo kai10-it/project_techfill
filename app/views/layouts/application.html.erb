@@ -37,6 +37,9 @@
             <li>
               <%= link_to("ログアウト", "/users/logout", data: {turbo_method: :post}) %>
             </li>
+            <li>
+              <%= link_to("記事一覧", "/articles/index") %>
+            </li>
           <% else %>
             <li>
               <a href="/users/check">ログイン</a>
