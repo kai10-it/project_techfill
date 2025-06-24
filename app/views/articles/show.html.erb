@@ -18,4 +18,9 @@
             <%= @article.body %>
         </p>
     </div>
+    <div class="article-edit">
+        <%= link_to("/articles/#{@article.id}/edit") do %>
+            <input name="submit" type="submit" value="記事を編集">
+        <% end %>
+    </div>
 </div>
