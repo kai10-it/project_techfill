@@ -31,3 +31,17 @@
         </div>
     <% end %>
 </div>
+
+<div class="comment-container">
+    <%= form_tag("comments/create") do %>
+        <div class="comment-body">
+            <h2>コメントをする</h2>
+            <div class="comment-text">
+                <textarea name="comment"></textarea>        
+            </div>
+            <div class="comment-submit">
+                <input name="submit" type="submit" value="コメントを投稿">
+            </div>
+        </div>
+    <% end %>
+</div>
