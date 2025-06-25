@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
     before_action :set_current_user
     before_action :authenticate_user, {only: [:edit, :update]}
-    
+
     before_action :ensure_correct_user, {only: [:edit, :update]}
     before_action :forbid_login_user, {only: [:new, :create, :login, :check]}
 
@@ -61,7 +61,7 @@ class UsersController < ApplicationController
 
     def ensure_correct_user
         @user = User.find_by(id: params[:id])
-        if @user.id != @current_user.id.to_s
+        if @user.id != @current_user.id
             redirect_to("/")
         end
     end
