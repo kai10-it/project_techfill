@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+    before_action :ensure_correct_user, {only: [:edit, :update]}
+
     def new
         @user = User.new        
     end
@@ -51,5 +53,12 @@ class UsersController < ApplicationController
     def logout
         session[:user_id] = nil
         redirect_to("/")
+    end
+
+    def ensure_correct_user
+        @user = User.find_by(id: params[:id])
+        if @user.id != @current_user.id.to_s
+            redirect_to("/")
+        end
     end
 end
