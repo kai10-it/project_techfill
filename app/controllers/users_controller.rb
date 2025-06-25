@@ -37,10 +37,10 @@ class UsersController < ApplicationController
         end
     end
 
-    def check        
+    def login
     end
 
-    def login
+    def check
         @user = User.find_by(email: params[:email], password: params[:password])
         if @user
             session[:user_id] = @user.id
