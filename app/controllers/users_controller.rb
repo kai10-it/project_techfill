@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
     before_action :ensure_correct_user, {only: [:edit, :update]}
+    before_action :forbid_login_user, {only: [:new, :create, :login, :check]}
 
     def new
         @user = User.new        
@@ -59,6 +60,12 @@ class UsersController < ApplicationController
         @user = User.find_by(id: params[:id])
         if @user.id != @current_user.id.to_s
             redirect_to("/")
+        end
+    end
+
+    def forbid_login_user
+        if @current_user
+            redirect_to("/articles/index")
         end
     end
 end
