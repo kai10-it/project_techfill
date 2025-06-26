@@ -31,6 +31,9 @@ Rails.application.routes.draw do
   post "articles/:id/update" => "articles#update"
   # 記事を削除するルート
   post "articles/:id/destroy" => "articles#destroy"
+
+  #コメントを投稿するルート
+  post "articles/:id/comment" => "comments#create"
   
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
