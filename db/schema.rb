@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_06_26_013149) do
+ActiveRecord::Schema[8.0].define(version: 2025_06_26_013358) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -22,7 +22,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_06_26_013149) do
     t.string "user_id"
   end
 
-  create_table "comments_tables", force: :cascade do |t|
+  create_table "comments", force: :cascade do |t|
     t.text "comment"
     t.string "article_id"
     t.string "user_id"
