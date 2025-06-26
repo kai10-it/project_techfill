@@ -25,6 +25,7 @@ class ArticlesController < ApplicationController
         @article = Article.find_by(id: params[:id])
         @article_user = User.find_by(id: @article.user_id)
         @create_date = @article.created_at.strftime("%-Y-%-m-%-d")
+        @comments = Comment.where(article_id: @article.id)
     end
 
     def edit
