@@ -33,7 +33,7 @@
 </div>
 
 <div class="comment-container">
-    <%= form_tag("comments/create") do %>
+    <%= form_tag("/articles/#{@article.id}/comment") do %>
         <div class="comment-body">
             <h2>コメントをする</h2>
             <div class="comment-text">
