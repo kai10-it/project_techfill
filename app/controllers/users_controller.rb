@@ -50,7 +50,7 @@ class UsersController < ApplicationController
             session[:user_id] = @user.id
             redirect_to("/")
         else
-            render("users/check")
+            render("users/login")
         end
     end
 
