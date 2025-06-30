@@ -15,7 +15,7 @@
     </div>
     <div class="article-text">
         <p>
-            <%= @article.body %>
+            <%= @article_body %>
         </p>
     </div>
     <% if @current_user != nil %>
@@ -32,6 +32,13 @@
             </div>
         <% end %>
     <% end %>
+    <div class="article-mode">
+        <% if @mode == "blank" %>
+            <%= link_to("閲覧モード", article_path(@article)) %>
+        <% else %>
+            <%= link_to("暗記モード", article_path(@article, mode:"blank")) %>
+        <% end %>
+    </div>
 </div>
 
 <div class="comment-container">
