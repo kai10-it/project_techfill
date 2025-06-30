@@ -303,7 +303,7 @@ header {
 
 
  /* 穴埋め問題で使用するマスキングの設定 */
- .fill-blank {
+ .blank-mode {
     background-color: black;
     color: black;
     cursor: pointer;
@@ -311,10 +311,9 @@ header {
     border-radius: 4px;
     margin: 0 2px;
     display: inline-block;
-    font-weight: bold;
  }
 
- .fill-blank:hover {
+ .blank-mode:hover {
     color: white;
  }
 
