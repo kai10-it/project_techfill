@@ -1,0 +1,20 @@
+<div class="users-form">
+    <div class="sinup-container">
+        <div class="sinup-message">新規ユーザー登録</div>
+        <div class="sinup-form">
+            <%= form_tag("/users/create") do %>
+                <div class="form-body">
+                    <p>ユーザー名</p>
+                    <input name="name" value="<%= @user.name %>">
+                    <p>メールアドレス</p>
+                    <input name="email" value="<%= @user.email %>">
+                    <p>パスワード</p>
+                    <input name="password" value="<%= @user.password %>">
+                </div>
+                <div class="sinup-submit">
+                    <input type="submit" value="新規登録">
+                </div>
+            <% end %>
+        </div>
+    </div>
+</div>

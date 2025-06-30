@@ -6,6 +6,15 @@ h1, h2, h3, h4, h5, h6, p, div {
   padding: 0;
 }
 
+body {
+   background-color: #F4F6F8;
+}
+
+a {
+   text-decoration: none;
+}
+
+
 header {
    position: fixed;
    z-index: 3;
@@ -26,6 +35,10 @@ header {
    list-style: none;
    float: right;
    margin: 35px 30px;
+}
+
+.header-list a {
+   color: #F4F6F8;
 }
 
 .top-main {
@@ -81,6 +94,50 @@ header {
    text-align: center;
    line-height: 80px;
    background-color: #1E3A8A;
+}
+
+/* サインアップページのレイアウト */
+.sinup-container {
+   max-width: 600px;
+   margin: 60px auto;
+   padding: 15px;
+}
+
+.sinup-message {
+   color: #1E3A8A;
+   background-color: white;
+   padding: 20px;
+   font-size: 35px;
+   font-weight: bold;
+}
+.form-body {
+   color: #1E3A8A;
+   padding: 20px;
+   background-color: white;   
+   font-size: 20px;
+   font-weight: bolder;
+}
+
+.form-body p {
+   margin-top: 10px;
+}
+
+.form-body input {
+   height: 30px;
+   width: 400px;
+}
+
+.sinup-submit {
+   padding: 20px;
+   background-color: white;  
+}
+
+.sinup-submit input {
+   font-size: 20px;
+   color: white;
+   background-color: #1E3A8A;
+   width: 100px;
+   height: 40px;  
 }
 
  /* 穴埋め問題で使用するマスキングの設定 */
