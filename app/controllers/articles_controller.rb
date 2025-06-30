@@ -27,6 +27,10 @@ class ArticlesController < ApplicationController
         @article_user = User.find_by(id: @article.user_id)
         @create_date = @article.created_at.strftime("%-Y-%-m-%-d")
         @comments = Comment.where(article_id: @article.id)
+
+        # 穴埋め問題機能
+        @mode = params[:mode]
+        @article_body = fill_in_blank(@article.body, @mode) 
     end
 
     def edit
