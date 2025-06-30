@@ -1,61 +1,21 @@
-<h1><%= @article.title %></h1>
-
-
-<!-- モード切り替えボタン -->
-<!-- もし穴埋め問題モードだったら、記事閲覧モードに移動するボタンを表示する -->
-<% if @mode == 'quiz' %>
-    <%= link_to '記事閲覧モードへ', article_path(@article), class: 'btn btn-primary' %>
-<!-- もし記事閲覧モードだったら、穴埋め問題モードに移動するボタンを表示する -->
-<%  else %>
-    <%= link_to '穴埋め問題モードへ', article_path(@article, mode: 'quiz'), class: 'btn btn-primary' %>
-<% end %>
-
-<!-- 記事の本文を表示する -->
-<div class="article-body">
-    <!-- 記事の本文にヘルパーメソッドを使用して閲覧 or 穴埋め表示の切り替えを行う -->
-    <%= render_article_body_with_blanks(@article.body, @mode) %>
+<div class="article-container">    
+    <div class="article-title">
+        <h2>
+            <%= @article.title %>
+        </h2>
+    </div>
+    <div class="article-info">
+        <div class="article-user">
+            <img src="<%= "/users_image/#{@article_user.image_name}" %>">
+            <p><%= @current_user.name %><p>
+        </div>
+        <div class="article-date">
+            <p>投稿日 <%= @create_date %></p>
+        </div>
+    </div>
+    <div class="article-text">
+        <p>
+            <%= @article.body %>
+        </p>
+    </div>
 </div>
-
-<hr>
-
-<!-- 記事制作者の情報を表示する -->
-<div class="user-info" style="display: flex; align-items: center; margin-top: 20px;">
-    <!-- ユーザーアイコンを表示する -->
-    <% if @article.user.avatar.attached? %>
-        <%= image_tag @article.user.avatar.variant(resize_to_fill: [40, 40]), class: "avatar", style: "border-radius: 50%; margin-right: 10px;" %>
-    <% else %>
-        <%= image_tag "default_avatar.png", size: "40x40", class: "avatar", style: "border-radius: 50%; margin-right: 10px;" %>
-    <% end %>
-
-    <!-- ユーザー名を表示する -->
-    <p><%= @article.user.name %></p>
-
-    <!-- 記事を作成したユーザーとしてログインしていた場合 -->
-    <% if @article.user == current_user %>
-        <!-- 記事を編集する -->
-        <%= link_to "記事を編集する", edit_article_path(@article), class: "btn btn-primary", style: "margin-right: 10px;" %>
-
-        <!-- 記事を削除する -->
-        <%= link_to "記事を削除", article_path(@article), method: :delete, data: {confirm: "本当に削除しますか？"}, class: "btn btn-danger" %>
-    <% end %>
-</div>
-
-<!-- コメント欄を表示する -->
-<h2>コメント</h2>
-<% @article.comments.each do |comment| %>
-    <div class="comment">
-        <strong><%= comment.user.name %>:</strong>
-        <%= comment.content %>
-    </div>
-<% end %>
-
-<!-- コメント投稿フォーム -->
-<%= form_with(model: [@article, Comment.new], local: true) do |form| %>
-    <div>
-        <%= form.label :content, "コメント内容" %><br>
-        <%= form.text_area :content, rows: 3 %>
-    </div>
-    <div>
-        <%= form.submit "投稿する" %>
-    </div>
-<% end %>
