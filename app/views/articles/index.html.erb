@@ -1,34 +1,20 @@
-<h1>記事一覧</h1>
-
-<!-- 記事検索フォーム -->
-<%= form_with url: articles_path, method: :get, local: true do |form| %>
-    <div style="margin-bottom: 20px;">
-        <%= form.label :query, "キーワード検索：" %>
-        <%= form.text_field :query, value: params[:query] %>
-        <%= form.submit "検索" %>
-    </div>
-<% end %>
-
-<% @articles.each do |article| %>
-    <div class="article" style="margin-bottom: 30px;">
-    <!-- 記事タイトル（リンク付き） -->
-    <h2>
-        <%= link_to article.title, article_path(article) %>
-    </h2>
-
-    <!-- ユーザー情報 -->
-    <div class="user-info" style="display: flex; align-items: center;">
-        <!-- ユーザーアイコンの表示 -->
-        <% if article.user.avatar.attached? %>
-            <%= image_tag article.user.avatar.variant(resize_to_fill: [40, 40]), class: "avatar", style: "border-radius: 50%; margin-right: 10px;" %>
-        <% else %>
-            <%= image_tag "default_avatar.png", size: "40x40", class: "avatar", style: "border-radius: 50%; margin-right: 10px;" %>
+<div class="article-container">
+    <% @articles.each do |article| %>
+        <%= link_to("/articles/#{article.id}/show") do %>
+            <div class="article-block">
+                <div class="article-info">
+                    <div class="article-user">
+                        <img src="<%= "/users_image/#{User.find_by(id: article.user_id).id}.png" %>">
+                        <p><%= User.find_by(id: article.user_id).name %><p>
+                    </div>
+                    <div class="article-date">
+                        <p>投稿日 <%= article.created_at.strftime("%-Y-%-m-%-d") %></p>
+                    </div>
+                </div> 
+                <div class="article-headline">
+                    <%= article.title %>
+                </div>
+            </div>
         <% end %>
-
-        <!-- ユーザー名の表示 -->
-            <span><%= article.user.name %></span>
-        </div>
-    
-        <hr>
-    </div>
-<% end %>        
+    <% end %>
+</div>

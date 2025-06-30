@@ -16,7 +16,8 @@ Rails.application.routes.draw do
   # ログアウトするルート
   post "users/logout" => "users#logout"
 
-
+  # 記事一覧ページのルート
+  get "articles/index" => "articles#index"
   # 記事作成ページのルート
   get "articles/new" => "articles#new"
   # 記事作成をするルート
