@@ -2,12 +2,24 @@
     <div class="header-logo"><h1>TechFill</h1></div>
     <div class="header-list">
         <ul>
-            <li>投稿記事一覧</li>
-            <li>ユーザー情報</li>
-            <li>ログイン</li>
-            <li>
+            <% if @current_user %>
+                <div class="header-user">
+                    <%= link_to("/users/#{@current_user.id}/edit") do %>
+                        <img src="<%= "users_image/#{@current_user.image_name}" %>">
+                    <% end %>
+                </div>
+                <li>
+                    <%= link_to("ログアウト", "/users/logout", data: {turbo_method: :post}) %>
+                </li>
+            <% else %>
+                <li>
+                    <a href="/users/check">ログイン</a>
+                </li>
+                <li>
                 <a href="/users/signup">新規登録</a>
-            </li>
+                </li>
+            
+            <% end %>
         </ul>
     </div>
 </header>

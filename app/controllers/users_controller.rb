@@ -34,4 +34,22 @@ class UsersController < ApplicationController
             render("users/edit")
         end
     end
+
+    def check        
+    end
+
+    def login
+        @user = User.find_by(email: params[:email], password: params[:password])
+        if @user
+            session[:user_id] = @user.id
+            redirect_to("/")
+        else
+            render("users/check")
+        end
+    end
+
+    def logout
+        session[:user_id] = nil
+        redirect_to("/")
+    end
 end
