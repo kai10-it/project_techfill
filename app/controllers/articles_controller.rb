@@ -21,4 +21,27 @@ class ArticlesController < ApplicationController
         @article_user = User.find_by(id: @article.user_id)
         @create_date = @article.created_at.strftime("%-Y-%-m-%-d")
     end
+
+    def edit
+        @article = Article.find_by(id: params[:id])
+    end
+
+    def update
+        @article = Article.find_by(id: params[:id])
+        @article.title = params[:title]
+        @article.body = params[:textarea]
+
+        if @article.save
+            redirect_to("/articles/#{@article.id}/show")
+        else
+            render("articles/#{@article.id}/show")
+        end
+        
+    end
+
+    def destroy
+        @article = Article.find_by(id: params[:id])
+        @article.destroy
+        redirect_to("/articles/index")
+    end
 end

@@ -228,8 +228,6 @@ header {
    font-size: 18px;
 }
 
-
-
 .article-text {
    background-color: white;
    margin-top: 20px;
@@ -260,6 +258,27 @@ header {
    background-color: #1E3A8A;;
    width: 120px;
    height: 50px;   
+}
+
+.article-edit input{
+   font-size: 20px;
+   font-weight: bold;
+   color: white;
+   background-color: #1E3A8A;
+   width: 120px;
+   height: 50px;
+   margin-right: 20px;
+   float: left;
+}
+
+.article-destroy input{
+   font-size: 20px;
+   font-weight: bold;
+   color: white;
+   background-color: #1E3A8A;
+   width: 120px;
+   height: 50px;
+   float: left;
 }
 
 /* 記事一覧ページのレイアウト */

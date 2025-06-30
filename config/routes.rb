@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   # ログアウトするルート
   post "users/logout" => "users#logout"
 
+  
   # 記事一覧ページのルート
   get "articles/index" => "articles#index"
   # 記事作成ページのルート
@@ -24,6 +25,12 @@ Rails.application.routes.draw do
   post "articles/create" => "articles#create"
   # 記事詳細ページのルート
   get "articles/:id/show" => "articles#show"
+  # 記事編集ページのルート
+  get "articles/:id/edit" => "articles#edit"
+  # 記事編集情報の更新をするルート
+  post "articles/:id/update" => "articles#update"
+  # 記事を削除するルート
+  post "articles/:id/destroy" => "articles#destroy"
   
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
