@@ -3,6 +3,7 @@ class ArticlesController < ApplicationController
     before_action :authenticate_user, {only: [:new, :create, :edit, :update, :destroy]}
     
     before_action :ensure_correct_user, {only: [:edit, :update, :destroy]}
+    
 
     def index
         @articles = Article.all
@@ -57,4 +58,17 @@ class ArticlesController < ApplicationController
             redirect_to("/articles/index")
         end
     end
+
+    # 穴埋め問題機能用のアクション
+    def fill_in_blank(text, mode)
+        if mode == "blank"
+            text.gsub(/\[\[(.*?)\]\]/) do
+                "<span class=\"blank-mode\">#{$1}</span>"
+            end.html_safe
+        else
+            text.gsub(/\[\[(.*?)\]\]/) do
+                $1
+            end
+        end
+    end    
 end
