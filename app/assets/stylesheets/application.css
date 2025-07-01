@@ -26,6 +26,7 @@ header {
 }
 
 .header-logo h1 {
+   color: white;
    margin: 20px 20px;
    float: left;
 }
