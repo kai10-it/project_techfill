@@ -35,16 +35,18 @@
 </div>
 
 <div class="comment-container">
-    <%= form_tag("/articles/#{@article.id}/comment") do %>
-        <div class="comment-body">
-            <h2>コメントをする</h2>
-            <div class="comment-text">
-                <textarea name="comment"></textarea>        
+    <% if @current_user != nil %>
+        <%= form_tag("/articles/#{@article.id}/comment") do %>
+            <div class="comment-body">
+                <h2>コメントをする</h2>
+                <div class="comment-text">
+                    <textarea name="comment"></textarea>        
+                </div>
+                <div class="comment-submit">
+                    <input name="submit" type="submit" value="コメントを投稿">
+                </div>
             </div>
-            <div class="comment-submit">
-                <input name="submit" type="submit" value="コメントを投稿">
-            </div>
-        </div>
+        <% end %>
     <% end %>
     <div class="comment-index">
         <h2>コメント一覧</h2>
