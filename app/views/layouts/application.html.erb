@@ -42,11 +42,14 @@
             </li>
           <% else %>
             <li>
-              <a href="/users/check">ログイン</a>
+              <a href="/users/login">ログイン</a>
             </li>
             <li>
               <a href="/users/signup">新規登録</a>
-            </li>            
+            </li>
+            <li>
+              <%= link_to("記事一覧", "/articles/index") %>
+            </li>                        
           <% end %>
         </ul>
       </div>
