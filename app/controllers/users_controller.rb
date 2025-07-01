@@ -1,4 +1,10 @@
 class UsersController < ApplicationController
+    before_action :set_current_user
+    before_action :authenticate_user, {only: [:edit, :update]}
+
+    before_action :ensure_correct_user, {only: [:edit, :update]}
+    before_action :forbid_login_user, {only: [:new, :create, :login, :check]}
+
     def new
         @user = User.new        
     end
@@ -35,10 +41,10 @@ class UsersController < ApplicationController
         end
     end
 
-    def check        
+    def login
     end
 
-    def login
+    def check
         @user = User.find_by(email: params[:email], password: params[:password])
         if @user
             session[:user_id] = @user.id
@@ -51,5 +57,18 @@ class UsersController < ApplicationController
     def logout
         session[:user_id] = nil
         redirect_to("/")
+    end
+
+    def ensure_correct_user
+        @user = User.find_by(id: params[:id])
+        if @user.id != @current_user.id
+            redirect_to("/")
+        end
+    end
+
+    def forbid_login_user
+        if @current_user
+            redirect_to("/articles/index")
+        end
     end
 end

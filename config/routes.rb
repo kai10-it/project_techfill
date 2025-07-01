@@ -10,9 +10,9 @@ Rails.application.routes.draw do
   # ユーザー情報の更新をするルート
   post "users/:id/update" => "users#update"
   # ログインページのルート
-  get "users/check" => "users#check"
+  get "users/login" => "users#login"
   # ログインを確認するルート
-  post "users/login" => "users#login"
+  post "users/check" => "users#check"
   # ログアウトするルート
   post "users/logout" => "users#logout"
 

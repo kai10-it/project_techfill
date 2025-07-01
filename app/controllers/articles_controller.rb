@@ -1,4 +1,9 @@
 class ArticlesController < ApplicationController
+    before_action :set_current_user
+    before_action :authenticate_user, {only: [:new, :create, :edit, :update, :destroy]}
+    
+    before_action :ensure_correct_user, {only: [:edit, :update, :destroy]}
+
     def index
         @articles = Article.all
     end
@@ -43,5 +48,12 @@ class ArticlesController < ApplicationController
         @article = Article.find_by(id: params[:id])
         @article.destroy
         redirect_to("/articles/index")
+    end
+
+    def ensure_correct_user
+        @article = Article.find_by(id: params[:id])
+        if @article.user_id != @current_user.id.to_s
+            redirect_to("/articles/index")
+        end
     end
 end
