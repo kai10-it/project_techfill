@@ -3,6 +3,7 @@ class ArticlesController < ApplicationController
     before_action :authenticate_user, {only: [:new, :create, :edit, :update, :destroy]}
     
     before_action :ensure_correct_user, {only: [:edit, :update, :destroy]}
+    
 
     def index
         @articles = Article.all
@@ -26,6 +27,10 @@ class ArticlesController < ApplicationController
         @article_user = User.find_by(id: @article.user_id)
         @create_date = @article.created_at.strftime("%-Y-%-m-%-d")
         @comments = Comment.where(article_id: @article.id)
+
+        # 穴埋め問題機能
+        @mode = params[:mode]
+        @article_body = fill_in_blank(@article.body, @mode) 
     end
 
     def edit
@@ -57,4 +62,17 @@ class ArticlesController < ApplicationController
             redirect_to("/articles/index")
         end
     end
+
+    # 穴埋め問題機能用のアクション
+    def fill_in_blank(text, mode)
+        if mode == "blank"
+            text.gsub(/\[\[(.*?)\]\]/) do
+                "<span class=\"blank-mode\">#{$1}</span>"
+            end.html_safe
+        else
+            text.gsub(/\[\[(.*?)\]\]/) do
+                $1
+            end
+        end
+    end    
 end
