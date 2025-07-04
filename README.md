@@ -51,7 +51,7 @@ QiitaやZennといった技術情報サイトには、プログラミング言�
 ## 詳細資料
 
 より詳しい技術選定理由や実装時の工夫・苦労した点などは、以下の資料にまとめています。  
-[TechFill 開発ドキュメント（詳細版）](./docs/TechFill_detail.md)
+[TechFill 開発ドキュメント（詳細版）](./docs/techfill_detail.md)
 
 ## 今後の改善ポイント
 
