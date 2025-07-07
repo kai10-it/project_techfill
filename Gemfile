@@ -47,9 +47,6 @@ group :development, :test do
   # セキュリティ診断ツール -アプリに脆弱性がないかチェックする [https://brakemanscanner.org/]
   gem "brakeman", require: false
 
-  # RubocopをRails向けにプリセットした構成で使うことができる -コードスタイルチェック用 [https://github.com/rails/rubocop-rails-omakase/]
-  gem "rubocop-rails-omakase", require: false
-
   # RSpecの本体 -Railsのテストを書くためのライブラリ
   gem "rspec-rails"
 
