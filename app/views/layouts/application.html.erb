@@ -25,7 +25,11 @@
 
   <body>
     <header>
-      <div class="header-logo"><h1>TechFill</h1></div>
+      <%= link_to("/") do %>
+        <div class="header-logo">
+          <h1>TechFill</h1>
+        </div>
+      <% end %>
       <div class="header-list">
         <ul>
           <% if @current_user %>
@@ -39,6 +43,9 @@
             </li>
             <li>
               <%= link_to("記事一覧", "/articles/index") %>
+            </li>
+            <li>
+              <%= link_to("記事作成", "/articles/new") %>
             </li>
           <% else %>
             <li>
