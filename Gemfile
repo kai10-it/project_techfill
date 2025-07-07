@@ -52,6 +52,11 @@ group :development, :test do
 
   # テストデータを自動で作成するためのライブラリ
   gem 'factory_bot_rails'
+
+  # コードのスタイルを確認するツール
+  gem 'rubocop', '~> 1.77', require: false
+  gem 'rubocop-rails', '~> 2.32', require: false
+  gem 'rubocop-rspec', '~> 3.6.0', require: false
 end
 
 group :development do
