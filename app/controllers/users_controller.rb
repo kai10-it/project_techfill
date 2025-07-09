@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   before_action :forbid_login_user, {only: [:new, :create, :login, :check]}
 
   def new
-    @user = User.new        
+    @user = User.new
   end
 
   def create
@@ -33,7 +33,7 @@ class UsersController < ApplicationController
           image = params[:image]
           File.binwrite("public/users_image/#{@user.image_name}", image.read)
       end
-      
+
       if @user.save
         redirect_to('/')
       else

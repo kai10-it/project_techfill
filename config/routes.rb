@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   # ログアウトするルート
   post 'users/logout' => 'users#logout'
 
-  
+
   # 記事一覧ページのルート
   get 'articles/index' => 'articles#index'
   # 記事作成ページのルート
@@ -34,7 +34,7 @@ Rails.application.routes.draw do
 
   #コメントを投稿するルート
   post 'articles/:id/comment' => 'comments#create'
-  
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
@@ -48,7 +48,7 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
 
-  # 記事に対してのコメントのルートを設定  
+  # 記事に対してのコメントのルートを設定
   resources :articles do
     resources :comments, only: [:create]
   end
