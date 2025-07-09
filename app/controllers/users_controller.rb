@@ -1,9 +1,9 @@
 class UsersController < ApplicationController
   before_action :set_current_user
-  before_action :authenticate_user, {only: [:edit, :update]}
+  before_action :authenticate_user, { only: [:edit, :update] }
 
-  before_action :ensure_correct_user, {only: [:edit, :update]}
-  before_action :forbid_login_user, {only: [:new, :create, :login, :check]}
+  before_action :ensure_correct_user, { only: [:edit, :update] }
+  before_action :forbid_login_user, { only: [:new, :create, :login, :check] }
 
   def new
     @user = User.new
