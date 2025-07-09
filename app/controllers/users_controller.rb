@@ -10,11 +10,11 @@ class UsersController < ApplicationController
     end
 
     def create
-        @user = User.new(name: params[:name], email: params[:email], password: params[:password], image_name: "default_user.jpg")
+        @user = User.new(name: params[:name], email: params[:email], password: params[:password], image_name: 'default_user.jpg')
         if @user.save
-            redirect_to("/")
+            redirect_to('/')
         else
-            render("users/new")
+            render('users/new')
         end
     end
 
@@ -35,9 +35,9 @@ class UsersController < ApplicationController
         end
         
         if @user.save
-            redirect_to("/")
+            redirect_to('/')
         else
-            render("users/edit")
+            render('users/edit')
         end
     end
 
@@ -48,27 +48,27 @@ class UsersController < ApplicationController
         @user = User.find_by(email: params[:email], password: params[:password])
         if @user
             session[:user_id] = @user.id
-            redirect_to("/")
+            redirect_to('/')
         else
-            render("users/login")
+            render('users/login')
         end
     end
 
     def logout
         session[:user_id] = nil
-        redirect_to("/")
+        redirect_to('/')
     end
 
     def ensure_correct_user
         @user = User.find_by(id: params[:id])
         if @user.id != @current_user.id
-            redirect_to("/")
+            redirect_to('/')
         end
     end
 
     def forbid_login_user
         if @current_user
-            redirect_to("/articles/index")
+            redirect_to('/articles/index')
         end
     end
 end

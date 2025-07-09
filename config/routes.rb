@@ -1,45 +1,45 @@
 Rails.application.routes.draw do
-  get "/" => "home#top"
+  get '/' => 'home#top'
 
   # サインアップのルート
-  get "users/signup" => "users#new"
+  get 'users/signup' => 'users#new'
   # ユーザー情報を登録するルート
-  post "users/create" => "users#create"
+  post 'users/create' => 'users#create'
   # ユーザー情報のルート
-  get "users/:id/edit" => "users#edit"
+  get 'users/:id/edit' => 'users#edit'
   # ユーザー情報の更新をするルート
-  post "users/:id/update" => "users#update"
+  post 'users/:id/update' => 'users#update'
   # ログインページのルート
-  get "users/login" => "users#login"
+  get 'users/login' => 'users#login'
   # ログインを確認するルート
-  post "users/check" => "users#check"
+  post 'users/check' => 'users#check'
   # ログアウトするルート
-  post "users/logout" => "users#logout"
+  post 'users/logout' => 'users#logout'
 
   
   # 記事一覧ページのルート
-  get "articles/index" => "articles#index"
+  get 'articles/index' => 'articles#index'
   # 記事作成ページのルート
-  get "articles/new" => "articles#new"
+  get 'articles/new' => 'articles#new'
   # 記事作成をするルート
-  post "articles/create" => "articles#create"
+  post 'articles/create' => 'articles#create'
   # 記事詳細ページのルート
-  get "articles/:id/show" => "articles#show"
+  get 'articles/:id/show' => 'articles#show'
   # 記事編集ページのルート
-  get "articles/:id/edit" => "articles#edit"
+  get 'articles/:id/edit' => 'articles#edit'
   # 記事編集情報の更新をするルート
-  post "articles/:id/update" => "articles#update"
+  post 'articles/:id/update' => 'articles#update'
   # 記事を削除するルート
-  post "articles/:id/destroy" => "articles#destroy"
+  post 'articles/:id/destroy' => 'articles#destroy'
 
   #コメントを投稿するルート
-  post "articles/:id/comment" => "comments#create"
+  post 'articles/:id/comment' => 'comments#create'
   
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
   # Can be used by load balancers and uptime monitors to verify that the app is live.
-  get "up" => "rails/health#show", as: :rails_health_check
+  get 'up' => 'rails/health#show', as: :rails_health_check
 
   # Render dynamic PWA files from app/views/pwa/* (remember to link manifest in application.html.erb)
   # get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
