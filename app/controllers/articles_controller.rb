@@ -29,7 +29,6 @@ class ArticlesController < ApplicationController
     @comments = Comment.where(article_id: @article.id)
     # 穴埋め問題機能
     @mode = params[:mode]
-    @article_body = fill_in_blank(@article.body, @mode)
   end
 
   def edit
@@ -56,19 +55,5 @@ class ArticlesController < ApplicationController
   def ensure_correct_user
     @article = Article.find_by(id: params[:id])
     redirect_to('/articles/index') unless @article.user_id == @current_user.id.to_s
-  end
-
-  # 穴埋め問題機能用のアクション
-  def fill_in_blank(text, mode)
-    if mode == 'blank'
-      text.gsub(/\[\[(.*?)\]\]/) do
-        matched_word = Regexp.last_match(1)
-        "<span class=\"blank-mode\">#{matched_word}</span>"
-      end.html_safe
-    else
-      text.gsub(/\[\[(.*?)\]\]/) do
-        Regexp.last_match(1)
-      end
-    end
   end
 end
