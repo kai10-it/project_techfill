@@ -15,7 +15,7 @@
     </div>
     <div class="article-text">
         <p>
-            <%= @article_body %>
+            <%= raw fill_in_blank(@article.body, @mode) %>
         </p>
     </div>
     <% if @current_user != nil %>
