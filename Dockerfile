@@ -23,8 +23,9 @@ RUN apt-get update -qq && \
       postgresql-client \
       imagemagick \
       build-essential \
-      libmagickwand-dev && \
-    rm -rf /var/lib/apt/lists /var/cache/apt/archives
+      libmagickwand-dev \
+      libyaml-dev && \
+    rm -rf /var/lib/apt/lists /var/cache/apt/archives/*
 
 # Set production environment
 ENV RAILS_ENV="production" \
