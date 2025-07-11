@@ -1,1 +1,33 @@
+plugins:
+  - rubocop-rails
+  - rubocop-rspec
+
+Style/Documentation:
+  Exclude:
+    - 'app/controllers/application_controller.rb'
+    - 'app/helpers/**/*'
+    - 'app/mailers/**/*'
+    - 'app/models/application_record.rb'
+    - 'config/**/*'
+    - 'test/application_system_test_case.rb'
+    - 'test/controllers/homes_controller_test.rb'
+    - 'test/test_helper.rb'
+
+Style/FrozenStringLiteralComment:
+  Exclude:
+    - 'app/controllers/**/*'
+    - 'app/helpers/**/*'
+    - 'app/jobs/**/*'
+    - 'app/mailers/**/*'
+    - 'spec/**/*'
+    - 'test/**/*'
+    - 'app/models/**/*'
+    - 'config/**/*'
+    - 'config.ru'
+    - 'db/**/*'
+
+Style/GlobalStdStream:
+  Exclude:
+  - 'config/environments/production.rb'
+
 
