@@ -8,7 +8,7 @@ ENV['RAILS_ENV'] ||= 'test'
 require_relative '../config/environment'
 
 # 実行環境が本番（production）なら、安全のためテストを中止する
-abort("The Rails environment is running in production mode!") if Rails.env.production?
+abort('The Rails environment is running in production mode!') if Rails.env.production?
 
 # RSpecでRailsの機能（モデルやコントローラなど）を使えるようにする
 require 'rspec/rails'
