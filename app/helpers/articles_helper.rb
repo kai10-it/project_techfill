@@ -5,7 +5,7 @@ module ArticlesHelper
     text.gsub(/\[\[(.*?)\]\]/) do
       matched_word = Regexp.last_match(1)
       if mode == 'blank'
-        content_tag(:span, sanitize(matched_word), class: 'blank-mode')
+        content_tag(:span, matched_word, class: 'blank-mode')
       else
         matched_word
       end

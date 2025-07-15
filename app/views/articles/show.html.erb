@@ -15,7 +15,7 @@
     </div>
     <div class="article-text">
         <p>
-            <%= raw fill_in_blank(@article.body, @mode) %>
+            <%= sanitize(fill_in_blank(@article.body, @mode), tags: %w[span]) %>
         </p>
     </div>
     <% if @current_user != nil %>
