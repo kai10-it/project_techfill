@@ -56,7 +56,7 @@ group :development, :test do
   gem 'factory_bot_rails'
 
   # コードのスタイルを確認するツール
-  gem 'rubocop', '~> 1.77', require: false
+  gem 'rubocop', '~> 1.79', require: false
   gem 'rubocop-rails', '~> 2.32', require: false
   gem 'rubocop-rspec', '~> 3.6.0', require: false
 end
