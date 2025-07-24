@@ -14,6 +14,33 @@ a {
    text-decoration: none;
 }
 
+.flash {
+   font-size: 20px;
+   font-weight: bold;
+   width: auto;
+   height: 70px;
+   padding: 0 20px;
+   border-radius: 10px;
+   box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+   line-height: 70px;
+   top: 20px;
+   left: 50%;
+   position: fixed;
+   transform: translateX(-50%);
+   z-index: 100;
+}
+
+.flash.notice {
+   color: black;
+   background-color: #ddffdd;
+   text-align: center;
+}
+
+.flash.alert {
+   color: white;
+   background-color: #f44336;
+   text-align: center;
+}
 
 header {
    position: relative;

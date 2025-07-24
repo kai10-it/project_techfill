@@ -24,6 +24,11 @@
   </head>
 
   <body>
+    <% flash.each do |key, message| %>
+      <div class="flash <%= key %>">
+        <%= message %>
+      </div>
+    <% end %>
     <header>
       <%= link_to("/") do %>
         <div class="header-logo">
