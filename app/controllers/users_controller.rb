@@ -14,9 +14,11 @@ class UsersController < ApplicationController
     @user = build_user
 
     if @user.save
+      flash[:notice] = 'ユーザーの作成に成功しました'
       redirect_to('/')
     else
-      render('users/new')
+      flash[:alert] = 'ユーザーの作成に失敗しました'
+      redirect_to('/users/new')
     end
   end
 
@@ -30,9 +32,11 @@ class UsersController < ApplicationController
     user_save_image(@user, params[:image]) if params[:image]
 
     if @user.save
+      flash[:notice] = 'ユーザー情報の更新が完了しました'
       redirect_to('/')
     else
-      render('users/edit')
+      flash[:alert] = 'ユーザー情報の更新に失敗しました'
+      rediretc_to('/users/edit')
     end
   end
 
@@ -44,9 +48,11 @@ class UsersController < ApplicationController
     @user = User.find_by(email: params[:email], password: params[:password])
     if @user
       session[:user_id] = @user.id
+      flash[:notice] = 'ログイン成功'
       redirect_to('/')
     else
-      render('users/login')
+      flash[:alert] = 'メールアドレスかパスワードが間違っています'
+      redirect_to('/users/login')
     end
   end
 

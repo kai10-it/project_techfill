@@ -16,9 +16,11 @@ class ArticlesController < ApplicationController
   def create
     @article = Article.new(title: params[:title], body: params[:textarea], user_id: @current_user.id)
     if @article.save
+      flash[:notice] = '記事を投稿しました'
       redirect_to('/')
     else
-      render('articles/new')
+      flash[:alert] = '記事を投稿できませんでした'
+      redirect_to('/articles/new')
     end
   end
 
@@ -37,12 +39,13 @@ class ArticlesController < ApplicationController
 
   def update
     @article = Article.find_by(id: params[:id])
-    @article.title = params[:title]
-    @article.body = params[:textarea]
+    prepare_article_update(@article)
     if @article.save
+      flash[:notice] = '記事の内容を更新しました'
       redirect_to("/articles/#{@article.id}/show")
     else
-      render("articles/#{@article.id}/show")
+      flash[:alert] = '記事の内容を更新できませんでした'
+      redirect_to("/articles/#{@article.id}/edit")
     end
   end
 
@@ -55,5 +58,13 @@ class ArticlesController < ApplicationController
   def ensure_correct_user
     @article = Article.find_by(id: params[:id])
     redirect_to('/articles/index') unless @article.user_id == @current_user.id.to_s
+  end
+
+  private
+
+  # 記事の情報更新のためのヘルパーメソッド
+  def prepare_article_update(article)
+    article.title = params[:title]
+    article.body = params[:textarea]
   end
 end
